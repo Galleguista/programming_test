@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz</title>
+</head>
+<body>
+    <h1>Sistema de facturacion "Somos todos"</h1>
+    <script>
+   let tipoUsuario = prompt("¿Qué tipo de usuario eres? (cliente / ordinario)");
+
+while (tipoUsuario !== "cliente" && tipoUsuario !== "ordinario") {
+    tipoUsuario = prompt("Por favor, introduce un tipo de usuario válido (cliente / ordinario)");
+}
+
+let tipoCompra = prompt("¿Qué tipo de compra vas a realizar? (abarrotes / licor / carne)");
+
+while (tipoCompra !== "abarrotes" && tipoCompra !== "licor" && tipoCompra !== "carne") {
+    tipoCompra = prompt("Por favor, introduce un tipo de compra válido (abarrotes / licor / carne)");
+}
+
+let valorUnitario = parseFloat(prompt("Introduce el valor unitario del producto"));
+let cantidad = parseInt(prompt("Introduce la cantidad de productos que vas a comprar"));
+let descuento = 0;
+
+if (tipoUsuario === "cliente") {
+    descuento = parseFloat(prompt("Introduce el valor del descuento"));
+}
+
+let edad = null;
+
+if (tipoCompra === "licor") {
+    edad = parseInt(prompt("Introduce tu edad"));
+    while (edad < 18) {
+        alert("No tienes la edad suficiente para comprar licor.");
+        edad = parseInt(prompt("Introduce tu edad"));
+    }
+}
+
+let totalPagar = (valorUnitario * cantidad) - descuento;
+
+document.write("Tipo de cliente: " + tipoUsuario + "<br>");
+document.write("Tipo de compra: " + tipoCompra + "<br>");
+document.write("Valor unitario: " + valorUnitario + "<br>");
+if (tipoUsuario === "cliente") {
+    document.write("Descuento: " + descuento + "<br>");
+}
+if (tipoCompra === "licor") {
+    document.write("Edad: " + edad + "<br>");
+}
+document.write("Total a pagar: " + totalPagar);
+
+
+    </script>
+</body>
+</html>
